@@ -44,5 +44,17 @@ pipeline {
                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'report', reportFiles: 'cucumber_report.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
         }
+        stage('Clone test automation') {
+            steps {
+                echo 'Cloning'
+                checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sridharbandi/cucumberjs-dt-example.git']])
+            }
+        }
+        stage('Install Deps') {
+            steps {
+                echo 'Install Deps'
+            }
+        }
+
     }
 }
