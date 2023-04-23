@@ -50,7 +50,7 @@ pipeline {
                 checkout changelog: false, poll: false, scm: scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sridharbandi/cucumberjs-dt-example.git']])
             }
         }
-        stage('Install Deps') {
+        stage('Install Test Deps') {
             steps {
                 echo 'Install Deps'
             }
